@@ -1,5 +1,9 @@
 # Development log
 
+## 2026-10-28 — Release v1.0.0
+- First "ship it now": tagged `v1.0.0`, pushed to private GitHub repo `anahossam/supermax-web`, release zip
+  `../backups/supermax-web-v1.0.0-2026-10-28.zip`. Contents: Phase 1 foundation.
+
 ## 2026-10-28 — Phase 1: foundation
 - Created Laragon `php.ini` (extensions: curl, fileinfo, gd, intl, mbstring, openssl, pdo_mysql, pdo_sqlite,
   sqlite3, zip, mysqli, sodium; timezone Africa/Cairo; memory 512M).

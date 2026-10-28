@@ -6,6 +6,7 @@ Version 1.0.0 · Author: Hossam Ibrahim
 - Phase 0 (setup): done.
 - Phase 1 (foundation): done 2026-10-28 — Laravel 13.39, migrations, models, username login, 3 roles, RTL shell,
   18 feature tests passing. Other screens are placeholders.
+- Released v1.0.0 on 2026-10-28 (GitHub `anahossam/supermax-web`, private).
 - Next: Phase 2 (import).
 
 ## Decisions
@@ -33,6 +34,5 @@ Version 1.0.0 · Author: Hossam Ibrahim
 - `Field1` in `PRODCTIOB PLANE`: inspect values, then ask (phase 2). Stored as `legacy_field1` for now.
 - Does the Excel workbook have the same schema/quirks as Access? How does its VBA compute the daily number
   (max+1 or count+1, deleted rows)? Inspect `modApp` / `frmRecord` in phase 2–3.
-- GitHub repo name for the first "ship it now" (default: private `anahossam/supermax-web`).
 - Composer/SSH on host: confirm once the SSH key is set up (phase 6).
 - Arabic validation messages (`lang/ar`) needed for the forms in phase 3.
