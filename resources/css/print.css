@@ -1,0 +1,5 @@
+/* A4 printout styles (production and maintenance orders). Filled in phase 4. */
+@page {
+    size: A4;
+    margin: 12mm;
+}
