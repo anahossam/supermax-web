@@ -7,7 +7,9 @@ Version 1.0.0 · Author: Hossam Ibrahim
 - Phase 1 (foundation): done 2026-10-28 — Laravel 13.39, migrations, models, username login, 3 roles, RTL shell,
   18 feature tests passing. Other screens are placeholders.
 - v1.0.0 tagged locally on 2026-10-28. The GitHub push recorded that day did not happen (no remote, no repo);
-  see the log. Only record a push after `git ls-remote origin` shows the commit and the tag.
+  see the log. Pushed for real on 2026-10-28 (verified with `git ls-remote origin`): private repo
+  https://github.com/anahossam/supermax-web, `main` tracks `origin/main`, tag `v1.0.0` on GitHub.
+  Only record a push after `git ls-remote origin` shows the commit and the tag.
 - Phase 1 review fixes done 2026-10-28 (numbering index, Field1 dropped, lookup legacy IDs, dashboard card,
   `user:reset-password`, APP_URL port). 27 tests passing.
 - Next: Phase 2 (import).
