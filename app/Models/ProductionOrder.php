@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasDailyNumber;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,7 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 ])]
 class ProductionOrder extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasDailyNumber, HasFactory, SoftDeletes;
 
     protected function casts(): array
     {
@@ -28,6 +30,14 @@ class ProductionOrder extends Model
             'has_text' => 'boolean',
             'has_inserts' => 'boolean',
         ];
+    }
+
+    /**
+     * Orders whose status means "under production" (تحت التشغيل), whatever status is the default.
+     */
+    public function scopeInProduction(Builder $query): void
+    {
+        $query->whereHas('status', fn (Builder $q) => $q->where('legacy_id', Lookup::STATUS_IN_PRODUCTION));
     }
 
     public function customer(): BelongsTo

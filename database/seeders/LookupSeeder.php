@@ -6,7 +6,8 @@ use App\Models\Lookup;
 use Illuminate\Database\Seeder;
 
 /**
- * The lookup lists from the Access database, in their Access ID order.
+ * The lookup lists from the Access database, in their Access ID order (legacy_id = position, 1-based).
+ * Safe to run again: existing rows keep their admin edits and only get a missing legacy_id filled in.
  */
 class LookupSeeder extends Seeder
 {
@@ -29,10 +30,13 @@ class LookupSeeder extends Seeder
 
         foreach ($lists as $type => $rows) {
             foreach ($rows as $i => $row) {
-                Lookup::firstOrCreate(
+                $lookup = Lookup::firstOrCreate(
                     ['type' => $type, 'name' => $row['name']],
-                    [...$row, 'sort_order' => $i + 1],
+                    [...$row, 'sort_order' => $i + 1, 'legacy_id' => $i + 1],
                 );
+                if ($lookup->legacy_id === null) {
+                    $lookup->update(['legacy_id' => $i + 1]);
+                }
             }
         }
     }

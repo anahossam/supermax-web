@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-#[Fillable(['type', 'name', 'color', 'is_default', 'is_active', 'sort_order'])]
+#[Fillable(['type', 'name', 'color', 'is_default', 'is_active', 'sort_order', 'legacy_id'])]
 class Lookup extends Model
 {
     public const STATUS = 'status';
@@ -14,6 +14,12 @@ class Lookup extends Model
     public const SAMPLE_MATERIAL = 'sample_material';
     public const CAVITY = 'cavity';
     public const POSITION = 'position';
+
+    /**
+     * Access ID (legacy_id) of the status "تحت التشغيل". Unlike the name or the default flag,
+     * it cannot be changed from the admin screens.
+     */
+    public const STATUS_IN_PRODUCTION = 1;
 
     /**
      * Admin-facing names of each list, in display order.

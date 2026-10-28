@@ -3,7 +3,7 @@
 @php
     $stats = [
         ['label' => 'إجمالي أوامر التشغيل', 'value' => \App\Models\ProductionOrder::count(), 'icon' => 'bi-gear', 'tone' => 'warning'],
-        ['label' => 'تحت التشغيل الآن', 'value' => \App\Models\ProductionOrder::whereHas('status', fn ($q) => $q->where('is_default', true))->count(), 'icon' => 'bi-play-fill', 'tone' => 'primary'],
+        ['label' => 'تحت التشغيل الآن', 'value' => \App\Models\ProductionOrder::inProduction()->count(), 'icon' => 'bi-play-fill', 'tone' => 'primary'],
         ['label' => 'أوامر الصيانة', 'value' => \App\Models\MaintenanceOrder::count(), 'icon' => 'bi-wrench', 'tone' => 'secondary'],
         ['label' => 'العملاء', 'value' => \App\Models\Customer::count(), 'icon' => 'bi-people', 'tone' => 'success'],
     ];

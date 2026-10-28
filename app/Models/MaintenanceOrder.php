@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasDailyNumber;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 ])]
 class MaintenanceOrder extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasDailyNumber, HasFactory, SoftDeletes;
 
     protected function casts(): array
     {
